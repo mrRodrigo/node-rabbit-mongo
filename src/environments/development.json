@@ -1,0 +1,37 @@
+{
+	"db": {
+		"url": "mongodb://localhost:27017/local",
+		"retryConnectionDelay": 1000,
+		"connectionConfig": { 
+			"useNewUrlParser": true,
+			"useUnifiedTopology": false
+		}
+	},
+	"httpServer": {
+		"host": "http://localhost",
+		"port": 4000
+	},
+	"amqpConfig": {
+		"retryConnectionDelay": 1000,
+		"host": "amqp://localhost",
+		"sub": {
+			"exchanges": [
+				{
+					"name": "stock",
+					"routingKey": "incremented",
+					"event": "increment",
+					"queue": ""
+				},
+				{
+					"name": "stock",
+					"routingKey": "decremented",
+					"event": "decrement",
+					"queue": ""
+				}
+			]
+		}
+	},
+	"stackError": {
+		"isVisible": true
+	}
+}

@@ -1,0 +1,27 @@
+{
+  "parser": "babel-eslint",
+  "globals": {
+    "document": false
+  },
+  "plugins": ["prettier"],
+  "extends": ["standard", "prettier"],
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "semi": ["error", "always", { "omitLastInOneLineBlock": true }],
+    "no-console": 0,
+    "no-const-assign": "warn",
+    "no-this-before-super": "warn",
+    "no-undef": "warn",
+    "no-unreachable": "warn",
+    "no-unused-vars": "warn",
+    "no-labels": 0,
+    "no-return-await": 0
+  }
+}
