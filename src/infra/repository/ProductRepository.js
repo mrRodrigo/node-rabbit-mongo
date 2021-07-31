@@ -2,7 +2,7 @@ const Repository = require('src/infra/repository/Repository');
 
 class ProductRepository extends Repository {
     constructor({ productModel }) {
-        super({ ResourceModel: productModel });
+        super({ resourceModel: productModel });
     }
 }
 

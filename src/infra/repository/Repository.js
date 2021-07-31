@@ -1,14 +1,14 @@
 class Repository {
-    constructor({ ResourceModel }) {
-        this.ResourceModel = ResourceModel;
+    constructor({ resourceModel }) {
+        this.resourceModel = resourceModel;
     }
 
     async count(query = {}) {
-        return await this.ResourceModel.countDocuments(query);
+        return await this.resourceModel.countDocuments(query);
     }
 
     async get(query) {
-        const databaseResource = await this.ResourceModel.findOne(query);
+        const databaseResource = await this.resourceModel.findOne(query);
 
         if (!databaseResource) return null;
 
@@ -16,7 +16,7 @@ class Repository {
     }
 
     async create(entity) {
-        const resourceModel = await this.ResourceModel.create(entity);
+        const resourceModel = await this.resourceModel.create(entity);
         return resourceModel;
     }
 
@@ -26,7 +26,7 @@ class Repository {
             { new: true, upsert: false, runValidators: true },
             opts
         );
-        const databaseUpdatedResource = await this.ResourceModel.findOneAndUpdate(
+        const databaseUpdatedResource = await this.resourceModel.findOneAndUpdate(
             query,
             entity,
             options
@@ -37,7 +37,7 @@ class Repository {
     }
 
     async replace(query, entity) {
-        const databaseReplacedResource = await this.ResourceModel.findOneAndReplace(
+        const databaseReplacedResource = await this.resourceModel.findOneAndReplace(
             query,
             entity,
             {
@@ -50,7 +50,7 @@ class Repository {
     }
 
     async remove(query) {
-        const databaseDeletedResource = await this.ResourceModel.findOneAndRemove(
+        const databaseDeletedResource = await this.resourceModel.findOneAndRemove(
             query
         );
         return databaseDeletedResource;

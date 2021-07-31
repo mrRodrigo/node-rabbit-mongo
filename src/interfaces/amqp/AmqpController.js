@@ -1,9 +1,11 @@
-const asyncMiddleware = require('src/interfaces/middleware/AsyncMiddleware');
+const EnumRoutingKey = require('src/domain/enum/EnumRoutingKey');
+const AsyncMiddleware = require('src/interfaces/middleware/AsyncMiddleware');
 
 module.exports = ({ context }) => ({
-	['increment']: asyncMiddleware(
-		async ctx => 
-			context.cradle.addProductOperation.execute(ctx.content)
+	[EnumRoutingKey.INCREMENT]: AsyncMiddleware(async ctx =>
+		await context.cradle.incrementHandler.execute(ctx.content)
 	),
-	['decrement']: (data) => console.log(data.content.toString(), 'decremented')
+	[EnumRoutingKey.DECREMENT]: AsyncMiddleware(async ctx =>
+		await context.cradle.decrementHandler.execute(ctx.content)
+	)
 });

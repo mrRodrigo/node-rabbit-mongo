@@ -1,12 +1,16 @@
 {
   "cwd": "./src",
+  "report-dir": "coverage",
   "exclude": [
     "container.js",
     "app.js"
   ],
   "reporter": [
+	"cobertura",
     "html",
     "lcov",
     "text-summary"
-  ]
+  ],
+  "check-coverage": true,
+  "lines": 98
 }
