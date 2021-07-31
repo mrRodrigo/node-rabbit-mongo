@@ -3,7 +3,6 @@ const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
 const compression = require('compression');
-const chalk = require('chalk');
 const { scopePerRequest } = require('awilix-express');
 
 module.exports = ({ environment, context, router }) => {
@@ -47,9 +46,7 @@ module.exports = ({ environment, context, router }) => {
 				});
 
 				server.on('listening', () => {
-					console.log(
-						`[HTTP] Listening on: ${environment.httpServer.host}:${environment.httpServer.port}`
-					);
+					console.log(`[HTTP] Listening on: ${environment.httpServer.host}:${environment.httpServer.port}`);
 					resolve({ server });
 				});
 			})

@@ -1,11 +1,10 @@
-const amqp = require('amqplib/callback_api');
-
 class AmqpClient {
-	constructor({ environment, amqpController }) {
+	constructor({ environment, amqpController, amqpLib }) {
 		this.hostURL = environment.amqpConfig.host;
 		this.exchanges = environment.amqpConfig.sub.exchanges;
 		this.retryConnectionDelay = environment.amqpConfig.retryConnectionDelay;
 		this.amqpController = amqpController;
+		this.amqpLib = amqpLib;
 		this.connection = null;
 	}
 
@@ -18,7 +17,7 @@ class AmqpClient {
 
 	connect() {
 		return new Promise((resolve, reject) =>
-			amqp.connect(this.hostURL, async (err, connection) => {
+			this.amqpLib.connect(this.hostURL, async (err, connection) => {
 				if (err) this.retryToConnect(err);
 
 				if (connection) {

@@ -10,7 +10,8 @@ const app = require('src/app');
 const httpServer = require('src/interfaces/http/httpServer');
 const router = require('src/interfaces/http/router');
 const routerRegister = require('src/interfaces/http/routerRegister');
-const environment = require('src/environments');
+const amqp = require('amqplib/callback_api');
+const environment = require('../environments');
 
 const container = createContainer();
 
@@ -21,7 +22,8 @@ container
 		context: asValue(container),
 		environment: asValue(environment),
 		router: asFunction(router).singleton(),
-		routerRegister: asFunction(routerRegister)
+		routerRegister: asFunction(routerRegister),
+		amqpLib: asValue(amqp)
 	})
 	.loadModules(
 		[

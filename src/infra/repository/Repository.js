@@ -55,17 +55,6 @@ class Repository {
         );
         return databaseDeletedResource;
     }
-
-    async findPaginated({
-        offset = 0,
-        limit = 50,
-        query = {}
-    }) {
-        const option = { offset: Number(offset), limit: Number(limit) };
-        const result = await this.ResourceModel.paginate(query, option);
-
-        return result;
-    }
 }
 
 module.exports = Repository;
