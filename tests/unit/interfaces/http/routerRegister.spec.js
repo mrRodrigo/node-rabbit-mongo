@@ -1,10 +1,10 @@
-const { expect, spy } = require('chai');
+const { expect } = require('chai');
 const routerRegister = require('src/interfaces/http/routerRegister');
 
 describe('Interfaces :: Http :: routerRegister ', () => {
 
 	describe('#routerRegister', () => {
-		let server, environment, context, router;
+		let environment, context, router;
 
 		before(() => {
 			register = routerRegister({ environment, context, router });

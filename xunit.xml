@@ -1,10 +1,10 @@
-<testsuite name="Mocha Tests" tests="8" failures="0" errors="0" skipped="0" timestamp="Sat, 31 Jul 2021 03:16:14 GMT" time="0.116">
+<testsuite name="Mocha Tests" tests="8" failures="0" errors="0" skipped="0" timestamp="Sat, 31 Jul 2021 16:20:47 GMT" time="0.067">
 <testcase classname="Interfaces :: amqp :: AmqpClient  call connect successfully when client instance is created" name="have all params" time="0.001"/>
-<testcase classname="Interfaces :: amqp :: AmqpClient  call connect successfully when client is connected" name="call connect from amqplib" time="0.007"/>
-<testcase classname="Interfaces :: amqp :: AmqpClient  call connect is not successfully" name="call retryToConnect from amqpClient" time="0.004"/>
-<testcase classname="Interfaces :: amqp :: AmqpClient  call start is called when client instance does not have connection" name="call connect" time="0.002"/>
-<testcase classname="Interfaces :: amqp :: AmqpClient  call start is called when client instance have connection" name="call connect" time="0.002"/>
-<testcase classname="Interfaces :: amqp :: AmqpClient  call retryToConnect is called when client instance does not have connection" name="call connect" time="0.002"/>
+<testcase classname="Interfaces :: amqp :: AmqpClient  call connect successfully when client is connected" name="call connect from amqplib" time="0.004"/>
+<testcase classname="Interfaces :: amqp :: AmqpClient  call connect is not successfully" name="call retryToConnect from amqpClient" time="0.001"/>
+<testcase classname="Interfaces :: amqp :: AmqpClient  call start is called when client instance does not have connection" name="call connect" time="0.001"/>
+<testcase classname="Interfaces :: amqp :: AmqpClient  call start is called when client instance have connection" name="call connect" time="0.001"/>
+<testcase classname="Interfaces :: amqp :: AmqpClient  call retryToConnect is called when client instance does not have connection" name="call connect" time="0.001"/>
 <testcase classname="Interfaces :: Http :: httpServer  #httpServer when Server is created" name="server has all params" time="0.001"/>
 <testcase classname="Interfaces :: Http :: routerRegister  #routerRegister when routerRegister is called" name="returns router with routes" time="0.001"/>
 </testsuite>
