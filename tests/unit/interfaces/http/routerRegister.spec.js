@@ -1,5 +1,4 @@
 const { expect, spy } = require('chai');
-const express = require('express');
 const routerRegister = require('src/interfaces/http/routerRegister');
 
 describe('Interfaces :: Http :: routerRegister ', () => {

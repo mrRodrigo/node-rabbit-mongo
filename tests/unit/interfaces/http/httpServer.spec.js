@@ -1,4 +1,4 @@
-const { expect, spy} = require('chai');
+const { expect, spy } = require('chai');
 const express = require('express');
 const httpServer = require('src/interfaces/http/httpServer');
 
