@@ -1,6 +1,6 @@
 const { expect, spy } = require('chai');
 const EnumRoutingKey = require('src/domain/enum/EnumRoutingKey');
-const AmqpController = require('src/interfaces/amqp/amqpController');
+const AmqpController = require('src/interfaces/amqp/AmqpController');
 
 describe('Interfaces :: amqp :: AmqpController ', () => {
 	describe('Have all routing keys and call successfully', () => {
