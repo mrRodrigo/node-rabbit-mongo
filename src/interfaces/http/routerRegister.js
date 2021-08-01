@@ -1,11 +1,26 @@
 const { Router } = require('express');
+class RouterRegister {
 
-const register = (routes) => {
-	const allRoutes = routes.map((route) => {
-		return Router()[route.method](route.path, route.handler);
-	});
+    constructor({ validatorMiddleware }) {
+      this.validator = validatorMiddleware;
+    }
 
-	return allRoutes;
-};
+    register(routes){
+      const router = Router();
 
-module.exports = () => register;
+      routes.forEach(route => {
+        const validateContract = [];
+
+        const { method, path, validation, handler } = route;
+
+		if(validation)
+        	validateContract.push(this.validator.validateContract(validation));
+
+        router[method](path, validateContract, handler);
+      });
+
+      return router;
+    }
+}
+
+module.exports = RouterRegister;

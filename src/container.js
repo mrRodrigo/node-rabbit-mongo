@@ -22,13 +22,13 @@ container
 		context: asValue(container),
 		environment: asValue(environment),
 		router: asFunction(router).singleton(),
-		routerRegister: asFunction(routerRegister),
+		routerRegister: asClass(routerRegister),
 		amqpLib: asValue(amqp)
 	})
 	.loadModules(
 		[
 			'src/app/**/*.js',
-			'src/domain/services/**/*.js',
+			'src/domain/**/*.js',
 			'src/interfaces/http/presentation/**/*.js',
 			'src/interfaces/middleware/**/*.js',
 			'src/interfaces/amqp/**/*.js',

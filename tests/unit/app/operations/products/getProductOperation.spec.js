@@ -1,5 +1,5 @@
 const { expect, spy } = require('chai');
-const GetProductOperation = require('src/app/operations/getProductOperation');
+const GetProductOperation = require('src/app/operations/products/getProductOperation');
 
 describe('app :: operations :: GetProductOperation ', () => {
 	describe('#GetProductOperation', () => { 
@@ -9,7 +9,7 @@ describe('app :: operations :: GetProductOperation ', () => {
 			before(() => {
 				databaseProduct = { data: '...' };
 				productRepository = {
-					get: spy(() => databaseProduct)
+					getByName: spy(() => databaseProduct)
 				};
 				getProductOperation = GetProductOperation({ productRepository });
 			});
@@ -19,7 +19,7 @@ describe('app :: operations :: GetProductOperation ', () => {
 				const response = await getProductOperation.execute({ name: '123' });
 	
 				expect(response).to.be.eql(databaseProduct);
-				expect(productRepository.get).to.have.been.called.once.with.exactly({ name: '123' });
+				expect(productRepository.getByName).to.have.been.called.once.with.exactly('123');
 			});
 		});
 
@@ -28,7 +28,7 @@ describe('app :: operations :: GetProductOperation ', () => {
 	
 			before(() => {
 				productRepository = {
-					get: spy(() => null)
+					getByName: spy(() => null)
 				};
 				getProductOperation = GetProductOperation({ productRepository });
 			});
@@ -38,7 +38,7 @@ describe('app :: operations :: GetProductOperation ', () => {
 					await getProductOperation.execute({ name: '123' });
 				} catch (error) {
 					expect(error.message).to.be.eql('Product not Found');
-					expect(productRepository.get).to.have.been.called.once.with.exactly({ name: '123' });
+					expect(productRepository.getByName).to.have.been.called.once.with.exactly('123');
 				}
 			});
 		});

@@ -18,7 +18,7 @@ module.exports = ({ productRepository }) => ({
 		let decrementError;
 
 		const product = await productRepository.update(
-			{ name: productName, quantity: { $gte: 0 } },
+			{ name: productName, quantity: { $gte: 1 } },
 			{ $inc: { quantity: -1 } }
 		);
 

@@ -1,18 +1,19 @@
 const { expect } = require('chai');
-const routerRegister = require('src/interfaces/http/routerRegister');
+const RouterRegister = require('src/interfaces/http/routerRegister');
 
 describe('Interfaces :: Http :: routerRegister ', () => {
 
 	describe('#routerRegister', () => {
-		let environment, context, router;
+		let environment, validatorMiddleware, router, routerRegister;
 
 		before(() => {
-			register = routerRegister({ environment, context, router });
+			validatorMiddleware = { validateContract: () => { }};
+			routerRegister = new RouterRegister({ environment, validatorMiddleware, router });
 		});
 
 		describe('when routerRegister is called', () => {
 			it('returns router with routes', () => {
-				const router = register([
+				const router = routerRegister.register([
 					{
 						path: '/',
 						method: 'get',
@@ -20,7 +21,7 @@ describe('Interfaces :: Http :: routerRegister ', () => {
 					}
 				]);
 
-				const [ get ] = router[0].stack;
+				const [ get ] = router.stack;
 				expect(get.route.path).to.be.eql('/');
 				expect(get.route.methods).to.be.eql({ get: true });
 			});

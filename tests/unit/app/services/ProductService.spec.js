@@ -62,7 +62,7 @@ describe('App :: handlers :: ProductService ', () => {
 				expect(product).to.be.equal('product');
 				expect(incrementError).to.be.undefined();
 				expect(productRepository.update).to.have.been.called.once.with.exactly(
-					{ name: 'name', quantity: { $gte: 0 }},
+					{ name: 'name', quantity: { $gte: 1 }},
 					{ $inc: { quantity: -1 } }
 				);
 			});
@@ -83,7 +83,7 @@ describe('App :: handlers :: ProductService ', () => {
 				expect(product).to.be.undefined('product');
 				expect(decrementError.message).to.be.eql('It\'s not possible decrement product');
 				expect(productRepository.update).to.have.been.called.once.with.exactly(
-					{ name: 'name', quantity: { $gte: 0 }},
+					{ name: 'name', quantity: { $gte: 1 }},
 					{ $inc: { quantity: -1 } }
 				);
 			});

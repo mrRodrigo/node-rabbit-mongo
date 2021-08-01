@@ -4,11 +4,10 @@ module.exports = ({ databaseProvider }) => {
 	const connection = databaseProvider.connection;
 
 	const OrderSchema = new Schema({
-		id: { 
-			type: Number,
-			unique: true
-		}, 
-		products: [],
+		products: {
+			type: Array,
+			default : []
+		},
 		total: { 
 			type: Number,
 			required: true

@@ -2,8 +2,9 @@ const AsyncMiddleware = require('src/interfaces/middleware/AsyncMiddleware');
 
 module.exports = (container) => ({
     get:  AsyncMiddleware(async (scope) => {
-		const { getProductOperation } = container
+		const { getProductOperation, productSerializer } = container;
        	const response = await getProductOperation.execute(scope.params);
-        return scope.res.status(200).json(response);
+		const serialized = productSerializer.serializeProduct(response);
+        return scope.res.status(200).json(serialized);
     })
 });
