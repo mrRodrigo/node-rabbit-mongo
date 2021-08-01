@@ -30,6 +30,7 @@ container
 			'src/app/**/*.js',
 			'src/domain/services/**/*.js',
 			'src/interfaces/http/presentation/**/*.js',
+			'src/interfaces/middleware/**/*.js',
 			'src/interfaces/amqp/**/*.js',
 			'src/infra/repository/**/*.js',
 			[

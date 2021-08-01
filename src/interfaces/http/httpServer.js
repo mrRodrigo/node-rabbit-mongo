@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const compression = require('compression');
 const { scopePerRequest } = require('awilix-express');
 
-module.exports = ({ environment, context, router }) => {
+module.exports = ({ environment, context, router, errorHandler}) => {
 	const app = express();
 
 	app.use(
@@ -23,15 +23,11 @@ module.exports = ({ environment, context, router }) => {
 	app.use(scopePerRequest(context));
 	app.use(router);
 
-	// app.get('*', (req, res, next) => {
-	//   next(appErrors.notFound());
-	// });
 
 	app.use((error, req, res, next) => {
 		next(error);
 	});
-
-	//app.use(errorMiddleware.use());
+	app.use(errorHandler);
 
 	return {
 		app,

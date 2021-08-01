@@ -1,9 +1,9 @@
 const { Router } = require('express');
 
-module.exports = ({ routerRegister, userRoutes }) => {
+module.exports = ({ routerRegister, productRoutes }) => {
 	const apiRouter = Router();
 
-	apiRouter.use('/users', ...routerRegister(userRoutes));
+	apiRouter.use('/products', ...routerRegister(productRoutes));
 
 	return apiRouter;
 };
