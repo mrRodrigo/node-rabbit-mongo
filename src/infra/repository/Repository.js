@@ -3,10 +3,6 @@ class Repository {
         this.resourceModel = resourceModel;
     }
 
-    async count(query = {}) {
-        return await this.resourceModel.countDocuments(query);
-    }
-
     async get(query) {
         const databaseResource = await this.resourceModel.findOne(query);
 
@@ -47,13 +43,6 @@ class Repository {
             }
         );
         return databaseReplacedResource;
-    }
-
-    async remove(query) {
-        const databaseDeletedResource = await this.resourceModel.findOneAndRemove(
-            query
-        );
-        return databaseDeletedResource;
     }
 }
 

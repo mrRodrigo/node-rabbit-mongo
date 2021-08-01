@@ -11,7 +11,8 @@ describe('Interfaces :: Http :: httpServer ', () => {
 			environment = {}; 
 			context = {}; 
 			router = express.Router();
-			server = httpServer({ environment, context, router });
+			errorHandler = () => {};
+			server = httpServer({ environment, context, router, errorHandler });
 		});
 
 		describe('when Server is created', () => {

@@ -1,21 +1,35 @@
-<testsuite name="Mocha Tests" tests="21" failures="0" errors="0" skipped="0" timestamp="Sat, 31 Jul 2021 20:13:23 GMT" time="0.081">
-<testcase classname="App :: handlers :: DecrementHandler  Call productService successfully" name="Returns updated product" time="0.003"/>
-<testcase classname="App :: handlers :: DecrementHandler  Call productService with error" name="Returns updated product" time="0.002"/>
-<testcase classname="App :: handlers :: IncrementHandler  Call productService successfully" name="Returns updated product" time="0.001"/>
-<testcase classname="App :: handlers :: IncrementHandler  Call productService with error" name="Returns updated product" time="0.001"/>
-<testcase classname="App :: handlers :: ProductService  #incrementProduct #incrementProduct successfully update" name="call successfully" time="0.001"/>
-<testcase classname="App :: handlers :: ProductService  #incrementProduct #incrementProduct error on update" name="call successfully" time="0"/>
-<testcase classname="App :: handlers :: ProductService  #decrementProduct #decrementProduct successfully update" name="call successfully" time="0.001"/>
-<testcase classname="App :: handlers :: ProductService  #decrementProduct #decrementProduct error on update" name="call successfully" time="0"/>
+<testsuite name="Mocha Tests" tests="35" failures="0" errors="0" skipped="0" timestamp="Sun, 01 Aug 2021 01:39:51 GMT" time="0.326">
+<testcase classname="App :: handlers :: DecrementHandler  Call productService successfully" name="Returns updated product" time="0.01"/>
+<testcase classname="App :: handlers :: DecrementHandler  Call productService with error" name="Returns updated product" time="0.006"/>
+<testcase classname="App :: handlers :: IncrementHandler  Call productService successfully" name="Returns updated product" time="0.002"/>
+<testcase classname="App :: handlers :: IncrementHandler  Call productService with error" name="Returns updated product" time="0.004"/>
+<testcase classname="app :: operations :: GetProductOperation  #GetProductOperation #GetProductOperation is successfully called" name="returns enum with correct values and keys" time="0.003"/>
+<testcase classname="app :: operations :: GetProductOperation  #GetProductOperation #GetProductOperation is not successfully called" name="Throws an error" time="0.002"/>
+<testcase classname="App :: handlers :: ProductService  #incrementProduct #incrementProduct successfully update" name="call successfully" time="0.002"/>
+<testcase classname="App :: handlers :: ProductService  #incrementProduct #incrementProduct error on update" name="call successfully" time="0.002"/>
+<testcase classname="App :: handlers :: ProductService  #decrementProduct #decrementProduct successfully update" name="call successfully" time="0.002"/>
+<testcase classname="App :: handlers :: ProductService  #decrementProduct #decrementProduct error on update" name="call successfully" time="0.001"/>
 <testcase classname="domain :: enum :: EnumRoutingKey  #EnumRoutingKey" name="returns enum with correct values and keys" time="0"/>
 <testcase classname="domain :: utils :: ExtractProductName  #fromAMQP" name="returns content without &#x22;&#x22;" time="0"/>
 <testcase classname="domain :: utils :: ExtractProductName  #fromAMQP" name="returns content without **" time="0"/>
-<testcase classname="Interfaces :: amqp :: AmqpClient  call connect successfully when client instance is created" name="have all params" time="0"/>
-<testcase classname="Interfaces :: amqp :: AmqpClient  call connect successfully when client is connected" name="call connect from amqplib" time="0.002"/>
-<testcase classname="Interfaces :: amqp :: AmqpClient  call connect is not successfully" name="call retryToConnect from amqpClient" time="0.002"/>
-<testcase classname="Interfaces :: amqp :: AmqpClient  call start is called when client instance does not have connection" name="call connect" time="0"/>
+<testcase classname="Exceptions :: Exception validate instance" name="returns Exception/Error instance" time="0.001"/>
+<testcase classname="Exceptions :: Exception validate exception" name="returns error" time="0.002"/>
+<testcase classname="Exceptions :: NotFoundException validate instance" name="returns not found instance" time="0.001"/>
+<testcase classname="Exceptions :: NotFoundException using string error" name="returns notFoundException error" time="0.001"/>
+<testcase classname="Exceptions :: NotFoundException using error instance" name="returns notFoundException error" time="0.001"/>
+<testcase classname="Exceptions :: NotFoundException using error instance with custom code" name="returns notFoundException error" time="0.001"/>
+<testcase classname="Exceptions :: NotFoundException using error instance with details property" name="returns notFoundException error" time="0.001"/>
+<testcase classname="Infra :: Database :: Repository :: Repository #get when data exists" name="returns data" time="0.001"/>
+<testcase classname="Infra :: Database :: Repository :: Repository #get when data exists does not exists" name="returns data" time="0.001"/>
+<testcase classname="Infra :: Database :: Repository :: Repository #create when is created" name="returns data" time="0.001"/>
+<testcase classname="Infra :: Database :: Repository :: Repository #update when is updated" name="returns data" time="0.001"/>
+<testcase classname="Infra :: Database :: Repository :: Repository #replace when is replaced" name="returns data" time="0.002"/>
+<testcase classname="Interfaces :: amqp :: AmqpClient  call connect successfully when client instance is created" name="have all params" time="0.001"/>
+<testcase classname="Interfaces :: amqp :: AmqpClient  call connect successfully when client is connected" name="call connect from amqplib" time="0.003"/>
+<testcase classname="Interfaces :: amqp :: AmqpClient  call connect is not successfully" name="call retryToConnect from amqpClient" time="0.003"/>
+<testcase classname="Interfaces :: amqp :: AmqpClient  call start is called when client instance does not have connection" name="call connect" time="0.002"/>
 <testcase classname="Interfaces :: amqp :: AmqpClient  call start is called when client instance have connection" name="call connect" time="0"/>
-<testcase classname="Interfaces :: amqp :: AmqpClient  call retryToConnect is called when client instance does not have connection" name="call connect" time="0.001"/>
+<testcase classname="Interfaces :: amqp :: AmqpClient  call retryToConnect is called when client instance does not have connection" name="call connect" time="0.003"/>
 <testcase classname="Interfaces :: amqp :: AmqpController  Have all routing keys and call successfully" name="Returns correct function INCREMENT routing key" time="0.001"/>
 <testcase classname="Interfaces :: amqp :: AmqpController  Have all routing keys and call successfully" name="Returns correct function DECREMENT routing key" time="0.001"/>
 <testcase classname="Interfaces :: Http :: httpServer  #httpServer when Server is created" name="server has all params" time="0"/>
