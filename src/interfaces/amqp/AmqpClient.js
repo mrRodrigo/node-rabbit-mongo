@@ -8,14 +8,12 @@ class AmqpClient {
 		this.connection = null;
 	}
 
-	retryToConnect(err){
+	retryToConnect(){
 		this.connection = null;
-		if (err) console.error('[AMQP]', err.message);
-		console.error('[AMQP] reconnecting');
 		return setTimeout(this.connect, this.retryConnectionDelay);
 	};
 
-	connect() {
+	connect = () => {
 		return new Promise((resolve, reject) =>
 		this.amqpLib.connect(this.hostURL, async (err, connection) => {
 				if (err) resolve(this.retryToConnect(err));

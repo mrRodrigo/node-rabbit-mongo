@@ -2,6 +2,14 @@ const { expect, spy } = require('chai');
 const AmqpClient = require('src/interfaces/amqp/AmqpClient');
 
 describe('Interfaces :: amqp :: AmqpClient ', () => {
+	before(() => {
+		spy.on(global.console, 'log', () => ({}))
+		spy.on(global.console, 'error', () => ({}))
+	});
+
+	after(() => {
+		spy.restore();
+	})
 	describe('call connect successfully', () => {
 		let amqpClient, environment, amqpController, amqpLib;
 

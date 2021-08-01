@@ -19,7 +19,7 @@ class DatabaseProvider {
 		return setTimeout(this.connect, this.retryConnectionDelay);
 	};
 
-	async connect() {
+	connect = async () => {
 		if(this.connection) return this.connection;
 
 		try {

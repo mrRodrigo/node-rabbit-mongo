@@ -1,6 +1,11 @@
 module.exports = () => ({
-	serializeOrder: ({ id, total, products }) => ({
-		id, total, products
-	})
+	serializeOrder: ({ _id, total, products }) => ({
+		id: _id, total, products
+	}),
+	serializeOrderList: (data = []) => {
+		return data.map(({ _id, total, products }) => ({
+			id: _id, total, products
+		}));
+	}
  });
  
